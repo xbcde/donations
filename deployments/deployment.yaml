@@ -18,6 +18,6 @@ spec:
         - name: donations
           image: "ghcr.io/xbcde/donations:main@sha256:9500f4e27462fd184ae9cd710c0e1b44a52d707b2ce93aa4f93da711fbcec271"
           ports:
-            - containerPort: 000
+            - containerPort: 3000
       imagePullSecrets:
         - name: ghcr
