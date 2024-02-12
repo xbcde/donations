@@ -3,8 +3,8 @@ import "@mantine/core/styles.css";
 import { theme } from "../theme";
 
 export const metadata = {
-  title: "Mantine Next.js template",
-  description: "I am using Mantine with Next.js!",
+  title: "Wishing Well",
+  description: "Make a wish!",
 };
 
 export default function RootLayout({ children }: { children: any }) {
