@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: donations
+  labels:
+    app: donations
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: donations
+  template:
+    metadata:
+      labels:
+        app: donations
+    spec:
+      containers:
+        - name: donations
+          image: "ghcr.io/xbcde/donations:main@sha256:9500f4e27462fd184ae9cd710c0e1b44a52d707b2ce93aa4f93da711fbcec271"
+          ports:
+            - containerPort: 000
+      imagePullSecrets:
+        - name: ghcr
