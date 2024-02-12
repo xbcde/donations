@@ -5,8 +5,20 @@ import {
   Title,
   TypographyStylesProvider,
 } from "@mantine/core";
+import * as React from "react";
 import { format } from "timeago.js";
 import classes from "./comment.module.css";
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      ["stripe-buy-button"]: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+    }
+  }
+}
 
 interface Wish {
   timestamp: number;
@@ -34,14 +46,7 @@ async function getWishes(): Promise<WishResponse[]> {
   return res.json();
 }
 
-export function Comment({
-  timestamp,
-  amount,
-  comment,
-  name,
-  city,
-  country,
-}: Wish) {
+function Comment({ timestamp, amount, comment, name, city, country }: Wish) {
   console.log(timestamp);
   return (
     <Paper key={timestamp} withBorder radius="md" className={classes.comment}>
@@ -67,7 +72,6 @@ export function Comment({
 export default async function HomePage() {
   const comments = await getWishes();
   console.log(comments);
-  // @ts-ignore
   return (
     <>
       <Title order={1}>Wishing Well</Title>
@@ -93,11 +97,10 @@ export default async function HomePage() {
         )
       )}
       <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-
       <stripe-buy-button
         buy-button-id="buy_btn_1OiTIiDlv1RGaEgdpxpOLv90"
         publishable-key="pk_live_51NkEyvDlv1RGaEgdGOWLtuMBD9h9ne9oPaCUYjw5fwJBKcVWFdq67acFebaa6soQT0xEKDktKyZ0luer5I1dyIgS00K8PnO1Q3"
-      ></stripe-buy-button>
+      />
     </>
   );
 }
