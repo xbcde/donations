@@ -1,8 +1,5 @@
-# Project Template
+# Mantine Next Template
 
-## Setup
+Get started with the template by clicking `Use this template` button on the top of the page.
 
-```
-make install
-. venv/bin/activate
-```
+[Documentation](https://mantine.dev/guides/next/)
